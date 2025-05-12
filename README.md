@@ -4,7 +4,7 @@
 
 Este proyecto es una aplicación web desarrollada con el framework Django de Python para gestionar las operaciones básicas de una tienda. Permite administrar productos, clientes y registrar las ventas realizadas. La interfaz de usuario está estilizada utilizando Bootstrap 5 y los formularios se renderizan de forma optimizada con `django-crispy-forms`.
 
-Este proyecto fue desarrollado como parte del [Nombre del Curso o Motivo, ej. Parcial II de Desarrollo de Aplicaciones con Acceso a Datos].
+Este proyecto fue desarrollado como parte del Parcial II de Desarrollo de Aplicaciones con Acceso a Datos.
 
 ## Funcionalidades Principales
 
@@ -101,3 +101,35 @@ Una vez que el servidor esté corriendo:
 Puedes usar la barra de navegación superior para moverte entre las secciones principales.
 
 ## Estructura del Proyecto (Simplificada)
+
+sistema_ventas/       <-- Carpeta raíz del proyecto (contiene manage.py)
+├── manage.py         <-- Utilidad de línea de comandos de Django
+├── sistema_ventas/   <-- Carpeta de configuración del proyecto Django
+│   ├── settings.py   <-- Configuración del proyecto
+│   ├── urls.py       <-- URLs principales del proyecto
+│   └── ...
+├── tienda/           <-- Aplicación Django para la lógica de la tienda
+│   ├── models.py     <-- Definición de modelos (Producto, Cliente, Venta)
+│   ├── views.py      <-- Lógica de las vistas (funciones que manejan requests)
+│   ├── forms.py      <-- Definición de formularios Django
+│   ├── urls.py       <-- URLs específicas de la aplicación 'tienda'
+│   ├── admin.py      <-- Configuración del panel de admin para los modelos
+│   ├── migrations/   <-- Archivos de migración de la base de datos
+│   ├── templates/    <-- Plantillas HTML
+│   │   └── tienda/
+│   │       ├── base.html
+│   │       ├── listar_productos.html
+│   │       ├── agregar_producto.html
+│   │       ├── producto_confirm_delete.html
+│   │       ├── ... (otras plantillas)
+│   └── ...
+├── venv/             <-- Carpeta del entorno virtual (si la creaste aquí)
+├── db.sqlite3        <-- Archivo de la base de datos SQLite
+├── requirements.txt  <-- Lista de dependencias de Python
+└── README.md         <-- Este archivo
+
+## Autor
+
+* **Duvan leonardo ramirez vasquez**
+
+---
