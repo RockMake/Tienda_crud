@@ -59,11 +59,7 @@ Sigue estos pasos para poner en marcha el proyecto en tu máquina local:
     ```
 
 3.  **Instalar Dependencias:**
-    Primero, asegúrate de tener el archivo `requirements.txt`. Si no lo tienes, puedes generarlo **mientras tu entorno virtual está activado** con el comando:
-    ```bash
-    pip freeze > requirements.txt
-    ```
-    Luego, instala las dependencias:
+     instala las dependencias:
     ```bash
     pip install -r requirements.txt
     ```
