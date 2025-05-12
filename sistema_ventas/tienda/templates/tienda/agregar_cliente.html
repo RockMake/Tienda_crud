@@ -1,0 +1,36 @@
+{% extends "tienda/base.html" %}
+{% load crispy_forms_tags %} {# Carga la etiqueta de crispy_forms #}
+{% block title %}Lista de Productos - Mi Tienda{% endblock %}
+
+{% block content %}
+    <h1>Agregar cliente</h1>
+    <hr>
+    <form method="post" action="{% url 'agregar_cliente' %}">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" name="nombre" id="nombre" class="form-control {% if form.nombre.errors %}is-invalid{% endif %}" value="{{ form.nombre.value|default_if_none:'' }}">
+            {% if form.nombre.errors %}
+                <div class="invalid-feedback">
+                    {% for error in form.nombre.errors %}
+                        {{ error }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="mb-3">
+            <label for="correo_electronico" class="form-label">Correo Electrónico</label>
+            <input type="email" name="correo_electronico" id="correo_electronico" class="form-control {% if form.correo_electronico.errors %}is-invalid{% endif %}" value="{{ form.correo_electronico.value|default_if_none:'' }}">
+            {% if form.correo_electronico.errors %}
+                <div class="invalid-feedback">
+                    {% for error in form.correo_electronico.errors %}
+                        {{ error }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+        <button type="submit" class="btn btn-success">Guardar Cliente</button>
+        <a href="{% url 'listar_clientes' %}" class="btn btn-secondary">Cancelar</a>
+{% endblock %}

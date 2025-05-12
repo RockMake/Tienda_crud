@@ -1,0 +1,19 @@
+{% extends "tienda/base.html" %}
+{% load crispy_forms_tags %} {# Carga la etiqueta de crispy_forms #}
+
+{% block title %}Agregar Producto - Mi Tienda{% endblock %}
+
+{% block content %}
+    <h1>Agregar Producto</h1>
+    <hr>
+    <div class="card">
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+                {{ form|crispy }} {#  Renderiza el formulario con estilo Bootstrap #}
+                <button type="submit" class="btn btn-success mt-3">Guardar Producto</button>
+                <a href="{% url 'listar_productos' %}" class="btn btn-secondary mt-3">Cancelar</a>
+            </form>
+        </div>
+    </div>
+{% endblock %}

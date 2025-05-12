@@ -1,0 +1,43 @@
+{% extends "tienda/base.html" %}
+
+{% block title %}Lista de Productos - Mi Tienda{% endblock %}
+
+{% block content %}
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1>Lista de Productos</h1>
+        <a href="{% url 'agregar_producto' %}" class="btn btn-primary">Agregar Nuevo Producto</a>
+    </div>
+
+    {% if productos %}
+        <table class="table table-striped table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Acciones</th> {# COLUMNAS #}
+                </tr>
+            </thead>
+            <tbody>
+                {% for producto in productos %}
+                    <tr>
+                        <td>{{ producto.nombre }}</td>
+                        <td>${{ producto.precio|stringformat:".2f" }}</td>
+                        
+                        <td>
+                            <a href="{% url 'editar_producto' pk=producto.pk %}" class="btn btn-sm btn-warning">Editar</a>
+                            <a href="{% url 'eliminar_producto' pk=producto.pk %}" class="btn btn-sm btn-danger">Eliminar</a>
+                        </td>
+                    </tr>   
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="alert alert-info" role="alert">
+            No hay productos registrados.
+        </div>
+    {% endif %}
+    <p>
+        <a href="{% url 'registrar_venta' %}" class="btn btn-link">Registrar Venta</a> |
+        <a href="{% url 'listar_clientes' %}" class="btn btn-link">Ver Clientes</a> |
+    </p>
+{% endblock %}  
