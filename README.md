@@ -133,3 +133,55 @@ sistema_ventas/       <-- Carpeta raíz del proyecto (contiene manage.py)
 * **Duvan leonardo ramirez vasquez**
 
 ---
+
+
+## Instalación y Configuración
+
+Sigue estos pasos para poner en marcha el proyecto en tu máquina local:
+
+1.  **Clonar el Repositorio desde GitHub:**
+    Abre tu terminal o Git Bash y clona el repositorio usando la URL que te proporcionó GitHub:
+    ```bash
+    git clone <URL_DE_TU_REPOSITORIO_EN_GITHUB>
+    ```
+    Luego, navega a la carpeta del proyecto que se acaba de crear:
+    ```bash
+    cd <NOMBRE_CARPETA_PROYECTO> 
+    # (Usualmente es el nombre de tu repositorio, ej. cd sistema_ventas)
+    ```
+    *(Reemplaza `<URL_DE_TU_REPOSITORIO_EN_GITHUB>` con la URL real, ej. `https://github.com/tu-usuario/sistema_ventas.git`)*
+
+2.  **Crear y Activar un Entorno Virtual:**
+    *(Este paso sigue igual)*
+    ```bash
+    python -m venv venv
+    # En Windows:
+    venv\Scripts\activate
+    # En macOS/Linux:
+    source venv/bin/activate
+    ```
+
+3.  **Instalar Dependencias:**
+    *(Este paso sigue igual, asumiendo que subiste `requirements.txt` a GitHub)*
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4.  **Aplicar Migraciones de la Base de Datos:**
+    *(Este paso sigue igual. Decide si subiste `db.sqlite3` o no)*
+    ```bash
+    python manage.py migrate
+    ```
+    *Si NO subiste `db.sqlite3` a GitHub (recomendado para empezar limpio), necesitarás crear un superusuario ahora.*
+
+5.  **Crear un Superusuario (si es necesario):**
+    *(Este paso sigue igual)*
+    ```bash
+    python manage.py createsuperuser
+    ```
+
+6.  **Ejecutar el Servidor de Desarrollo:**
+    *(Este paso sigue igual)*
+    ```bash
+    python manage.py runserver
+    ```
